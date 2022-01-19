@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
+const cors = require('cors');
 require('dotenv').config();
 // const path = require('path')
 
@@ -14,6 +15,7 @@ const routes = require('./routes');
 
 app.use(morgan('tiny'));
 app.use(express.json());
+app.use(cors());
 
 app.use(expressJwt({
     secret: process.env.JWT_SECRET,
